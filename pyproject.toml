@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pynamerx"
+version = "0.2.1"
+description = "A powerful, scope-aware Python source renamer/obfuscator that hides names, string literals and imports."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "pooraddyy" }]
+keywords = [
+  "obfuscation", "renamer", "remapper", "ast", "minifier", "symbol-table",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Software Development :: Build Tools",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7.4"]
+
+[project.scripts]
+pynamer = "pynamer.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/pooraddyy/PyNamer"
+Repository = "https://github.com/pooraddyy/PyNamer"
+Issues = "https://github.com/pooraddyy/PyNamer/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pynamer"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
